@@ -1,4 +1,58 @@
+### 1. Synchronous
+A synchronous program is one where code is executed in a sequential order. Each command must finish before the next one starts.:
 
+
+### 2. Asynchronous
+An asynchronous program allows certain commands to run without waiting for previous ones to complete. For example, using setTimeout:
+
+### 3. New Promise
+A Promise is an object used to handle asynchronous operations. It has three states: pending, fulfilled, and rejected
+```
+
+let promise = new Promise((resolve, reject) => {
+  setTimeout(() => resolve("Success!"), 2000);
+});
+
+promise.then((result) => {
+  console.log(result); 
+});
+```
+
+4. Async/Await
+async/await is a simpler way to work with Promises, allowing you to write asynchronous code that looks like synchronous code
+```
+
+async function example() {
+  let promise = new Promise((resolve) => {
+    setTimeout(() => resolve("Success!"), 2000);
+  });
+
+  let result = await promise;
+  console.log(result); 
+}
+
+example();
+```
+
+5. Try/Catch
+When using async/await, you can handle errors using a try/catch block
+
+```
+async function example() {
+  try {
+    let promise = new Promise((resolve, reject) => {
+      setTimeout(() => reject("Error!"), 2000);
+    });
+
+    let result = await promise;
+    console.log(result);
+  } catch (error) {
+    console.log(error); 
+  }
+}
+
+example();
+```
 
 ### 1. **Http**
 This is an older way to make HTTP requests. It allows you to send requests and handle responses asynchronously.
